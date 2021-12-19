@@ -1,6 +1,6 @@
 ## App Native PHP
 
-I show a basci example of session handling in php.
+I show a basic example of session handling in php.
 
 
 ## Author

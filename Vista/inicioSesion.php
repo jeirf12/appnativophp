@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio sesión</title>
+  <link rel="stylesheet" type="text/css" href="Vista/css/estilos.css">
+</head>
+<body>
+  <center>
+    <form action="" method="POST">
+      <h4>Iniciar Sesión</h4>
+      <?php echo $errorLogin ?>
+      <fieldset class="inicio-session">
+        <legend>Inicio de sesión</legend>
+        <label>Ingrese Usuario: </label>
+        <input type="text" name="usuario">
+        <label>Ingrese Contraseña: </label>
+        <input type="password" name="contrasenia">
+        <input class="iniciar-session" type="submit" value="INICIAR SESIÓN">
+      </fieldset>
+    </form>
+  </center>
+</body>
+</html>

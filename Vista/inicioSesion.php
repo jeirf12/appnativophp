@@ -9,7 +9,7 @@
   <center>
     <form action="" method="POST">
       <h4>Iniciar Sesión</h4>
-      <?php echo $errorLogin ?>
+      <?php if(isset($errorLogin)) echo $errorLogin; ?>
       <fieldset class="inicio-session">
         <legend>Inicio de sesión</legend>
         <label>Ingrese Usuario: </label>

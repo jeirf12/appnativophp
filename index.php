@@ -1,4 +1,5 @@
 <?php
+echo "<link rel='stylesheet' type='text/css' href='Vista/css/estilos.css'>";
 require('Modelo/clsConexion.php');
 require('Modelo/clsSesion.php');
 

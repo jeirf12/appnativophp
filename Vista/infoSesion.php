@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>Datos Usuario</title>
-    <link rel="stylesheet" type="text/css" href="Vista/css/estilos.css">
   </head>
   <body>
     <center>

@@ -11,12 +11,15 @@ class clsSesion {
     $resultado = false;
     try {
       $sql = "SELECT * FROM PERSONA WHERE USUARIO = '$usuario' AND CLAVE = '$clave' ";
-      /* $consulta = pg_query($sql); // --> consulta con postgres */
-      $consulta = $this->conexion->getConexion()->query($sql); // --> consulta con mysql
-      /* while ($fila = pg_fetch_assoc($consulta)){ // --> fetch_assoc de postgres */
-      while ($fila = $consulta->fetch_assoc()){ // --> fetch_assoc de mysql
-        $this->fijarSesion($fila);
-        $resultado = true;
+      $consulta = pg_query($sql); // --> consulta con postgres
+      /* $consulta = $this->conexion->getConexion()->query($sql); // --> consulta con mysql */
+      while ($fila = pg_fetch_assoc($consulta)){ // --> fetch_assoc de postgres
+      /* while ($fila = $consulta->fetch_assoc()){ // --> fetch_assoc de mysql */
+        $fila['clave'] = password_hash($fila['clave'], PASSWORD_DEFAULT);
+        if(password_verify($clave, $fila['clave'])) {
+          $this->fijarSesion($fila);
+          $resultado = true;
+        }
       }
     } catch( Exception $ex ) {
       echo "Ocurrio un error ".$ex;

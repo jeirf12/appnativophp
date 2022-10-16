@@ -1,21 +1,11 @@
 <?php
-echo "<link rel='stylesheet' type='text/css' href='Vista/css/estilos.css'>";
-require('Modelo/clsConexion.php');
-require('Modelo/clsSesion.php');
+echo "<link rel='stylesheet' type='text/css' href='View/css/styles.css'>";
+require('Config/Connection.php');
+require('Config/Utilities.php');
 
-$sesion = new clsSesion();
+$controller =  isset($_REQUEST['c']) ? $_REQUEST['c'] : 'Product';
+$action = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'index';
 
-if ($sesion->existeSesion()) {
-  require('Controlador/gestionProducto.php');
-} else if( isset($_REQUEST['usuario']) && isset($_REQUEST['contrasenia']) ) {
-  $usuario = $_REQUEST['usuario'];
-  $clave = $_REQUEST['contrasenia'];
-  if ($sesion->existeUsuario($usuario, $clave)) {
-    require('Controlador/gestionProducto.php');
-  }else {
-    $errorLogin = "<p>Contraseña o usuario incorrectos, verifique los datos y vuelva acceder</p>";
-    require('Vista/inicioSesion.php');
-  } 
-} else {
-  require('Vista/inicioSesion.php');
-}
+$controller = Utilities::loadController($controller);
+Utilities::loadAction($controller, $action);
+?>

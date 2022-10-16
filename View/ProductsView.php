@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <?php
-            foreach ($listaProductos as $item) {
+            foreach ($products as $item) {
               echo '<tr>'; 
               echo '<td>'.$item["codigo"].'</td>'; 
               echo '<td>'.$item["nombre"].'</td>'; 
@@ -27,11 +27,11 @@
           ?>
         </tbody>
       </table>
-      <form action="" method="POST">
-        <button class="cierre-session" type="submit" name="cierresesion">Cerrar Sesión</button>
+      <form action="?c=User&a=logout" method="POST">
+        <button class="cierre-session" type="submit">Cerrar Sesión</button>
       </form>
-      <form action="" method="POST">
-        <button class="info-session" type="submit" name="infosesion">Info Sesión</button>
+      <form action="?c=User&a=dataUser" method="POST">
+        <button class="info-session" type="submit">Info Sesión</button>
       </form>
     </center>
   </body>

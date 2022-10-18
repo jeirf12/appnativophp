@@ -13,10 +13,9 @@ class UserController {
     require("View/LoginView.php");
   }
   public function login() {
-    if($this->user->existUser($_REQUEST["usuario"], $_REQUEST["contrasenia"]) || $this->user->existSession()) { 
+    if($this->user != null && $this->user->existUser($_REQUEST["usuario"], $_REQUEST["contrasenia"]) || $this->user->existSession()) { 
       header("Location: ?c=Product&a=index");
-    } 
-    else { 
+    } else { 
       $errorLogin = "<p>Contraseña o usuario incorrectos, verifique los datos y vuelva acceder</p>";
       require("View/LoginView.php");
     }

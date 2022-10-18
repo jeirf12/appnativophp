@@ -10,6 +10,7 @@ class User {
   public function existUser($username, $password) {
     $result = false;
     try {
+      if($this->connection == null) return false;
       $sql = "SELECT * FROM PERSONA WHERE USUARIO = '$username' AND CLAVE = '$password' ";
       /* $query = pg_query($sql); // --> consulta con postgres */
       $query = $this->connection->query($sql); // --> consulta con mysql
@@ -22,7 +23,7 @@ class User {
         }
       }
     } catch( Exception $ex ) {
-      echo "Ocurrio un error ".$ex;
+      echo "Ocurrio un error al verificar el usuario ".$ex->getMessage();
     }
     return $result;
   }

@@ -6,7 +6,7 @@
 </head>
 <body>
   <center>
-    <form action="?c=user&a=login" method="POST">
+    <form action="?c=User&a=login" method="POST">
       <h4>Iniciar Sesión</h4>
       <?php if(isset($errorLogin)) echo $errorLogin; ?>
       <fieldset class="inicio-session">
